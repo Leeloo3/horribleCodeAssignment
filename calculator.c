@@ -65,7 +65,7 @@ int main() {
                 continue;
         }
 
-        printf("Result: f\n", result);
+        printf("Result: %.3f\n", result);
     }
 
     printf("Done!\n");
