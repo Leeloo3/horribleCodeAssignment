@@ -1,75 +1,73 @@
 #include <stdio.h>
+#include <ctype.h>
 
-// addition function
-float add(float x, float y){
+// Addition function
+float add(float x, float y) {
     return x + y;
 }
 
-// subtraction function
-float sub(float x, float y){{
+// Subtraction function
+float sub(float x, float y) {
     return x - y;
 }
 
-// multiplication function
-float mul(float x, float y){
+// Multiplication function
+float mul(float x, float y) {
     return x * y;
 }
 
-// division function
-float div(float x, float y){
-    // check for division by zero (not possible)
-    if (y == 0){
-        printf("Cannot divide by zero");
+// Division function
+float div(float x, float y) {
+    // Check for division by zero
+    if (y == 0) {
+        printf("Cannot divide by zero\n");
         return 0;
     }
     return x / y;
 }
 
-int main(){
+int main() {
     char select;
-    float num1, num2, answer;
+    float num1, num2, result;
 
-    while(1){
-        printf("Select an operation (+, -, *, /) or 'c' to cancel");
-        scanf("%c", &select);
+    //infinite while loop to allow users to exit once done
+    while (1) {
+        printf("Select an operation (+, -, *, /) or 'c' to cancel: ");
+        scanf(" %c", &select);
 
         select = tolower(select);
 
-        if (select == 'c'){
+        if (select == 'c') {
             break;
         }
 
-         printf("Enter first number: ");
-        scanf("%lf", &num1);
+        printf("Enter first number: ");
+        scanf("%f", &num1);
         printf("Enter second number: ");
-        scanf("%lf", &num2);
+        scanf("%f", &num2);
 
-        switch (operation) {
+        // switch function to call the function selected by the user
+        switch (select) {
             case '+':
                 result = add(num1, num2);
                 break;
             case '-':
-                result = subtract(num1, num2);
+                result = sub(num1, num2);
                 break;
             case '*':
-                result = multiply(num1, num2);
+                result = mul(num1, num2);
                 break;
             case '/':
-                result = divide(num1, num2);
-                if (num2 == 0) {
-                    continue; // Skip to the next iteration if division by zero
-                }
+                result = div(num1, num2);
                 break;
             default:
                 printf("Invalid operation. Please try again.\n");
                 continue;
         }
 
-        printf("Result: %.2f\n", result);
+        printf("Result: f\n", result);
     }
 
-    printf("Thank you for using the calculator!\n");
+    printf("Done!\n");
     return 0;
-
-    }
 }
